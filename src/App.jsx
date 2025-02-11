@@ -5,10 +5,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const App = () => {
   const [a, setA] = useState("");
   const [b, setB] = useState("");
-  const [operation, setOperation] = useState(null);
-  const [result, setResult] = useState(null);
+  const [operacion, setOperacion] = useState(null);
+  const [resultado, setResultado] = useState(null);
 
-  const handleOperation = (op) => {
+  // Función para realizar la operación matemática
+  const manejarOperacion = (op) => {
     if (a === "" || b === "") return;
     const numA = parseFloat(a);
     const numB = parseFloat(b);
@@ -31,8 +32,16 @@ const App = () => {
         res = null;
     }
 
-    setOperation(op);
-    setResult(res);
+    setOperacion(op);
+    setResultado(res);
+  };
+
+  // Función para limpiar los campos y el resultado
+  const manejarLimpiar = () => {
+    setA("");
+    setB("");
+    setOperacion(null);
+    setResultado(null);
   };
 
   return (
@@ -45,7 +54,6 @@ const App = () => {
         width: "100vw",
       }}
     >
-
       <div
         className="card shadow-lg p-4 text-center"
         style={{
@@ -63,8 +71,6 @@ const App = () => {
           />
           Calculadora
         </h2>
-
-
 
         <input
           type="number"
@@ -87,9 +93,8 @@ const App = () => {
           {["+", "-", "×", "÷"].map((op) => (
             <button
               key={op}
-              className={`btn btn-lg ${operation === op ? "btn-primary text-white shadow" : "btn-outline-primary"
-                }`}
-              onClick={() => handleOperation(op)}
+              className={`btn btn-lg ${operacion === op ? "btn-primary text-white shadow" : "btn-outline-primary"}`}
+              onClick={() => manejarOperacion(op)}
               style={{
                 width: "70px",
                 height: "70px",
@@ -103,15 +108,30 @@ const App = () => {
           ))}
         </div>
 
-        <Result operation={operation} result={result} />
+        {/* Botón Limpiar */}
+        <button
+          className="btn btn-danger btn-lg mt-3"
+          onClick={manejarLimpiar}
+          style={{
+            width: "100%",
+            height: "50px",
+            borderRadius: "10px",
+            fontSize: "18px",
+          }}
+        >
+          Limpiar
+        </button>
+
+        {/* Casilla para mostrar el resultado */}
+        <Resultado operacion={operacion} resultado={resultado} />
       </div>
     </div>
   );
 };
 
-const Result = ({ operation, result }) => (
+const Resultado = ({ operacion, resultado }) => (
   <div className="mt-4">
-    {operation ? (
+    {operacion ? (
       <h4
         className="text-success fw-bold"
         style={{
@@ -121,7 +141,7 @@ const Result = ({ operation, result }) => (
           borderRadius: "10px",
         }}
       >
-        Resultado ({operation}): {result}
+        Resultado ({operacion}): <span className="text-dark">{resultado}</span>
       </h4>
     ) : (
       <h5 className="text-muted">Seleccione una operación</h5>
@@ -129,9 +149,9 @@ const Result = ({ operation, result }) => (
   </div>
 );
 
-Result.propTypes = {
-  operation: PropTypes.string,
-  result: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+Resultado.propTypes = {
+  operacion: PropTypes.string,
+  resultado: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
 export default App;
