@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Operador from "./Operador/Operador"; // Cambié el nombre a Operador.jsx
+import Operador from "./Operador/Operador";
 
 const App = () => {
-  // Lógica del componente App (igual que antes)
+
   const [a, setA] = useState("");
   const [b, setB] = useState("");
   const [operacion, setOperacion] = useState(null);
