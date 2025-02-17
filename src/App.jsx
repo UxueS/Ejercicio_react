@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Operador from "./Operador/Operador";
 
 const App = () => {
-
   const [a, setA] = useState("");
   const [b, setB] = useState("");
   const [operacion, setOperacion] = useState(null);
@@ -47,8 +46,10 @@ const App = () => {
     <div
       className="d-flex justify-content-center align-items-center vh-100"
       style={{
-        background: "#e3f2fd",
-        display: "flex",
+        backgroundImage: "url(/icons/fondo.png)", // Usa la imagen directamente desde la misma ubicación que calculadora.png
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
         height: "100vh",
         width: "100vw",
       }}
