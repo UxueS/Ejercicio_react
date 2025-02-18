@@ -8,13 +8,13 @@ const App = () => {
   const [operacion, setOperacion] = useState(null);
   const [resultado, setResultado] = useState(null);
 
-  const hacerOperacion = (op) => {
+  const hacerOperacion = (oper) => {
     if (a === "" || b === "") return;
     const numA = parseFloat(a);
     const numB = parseFloat(b);
 
     let res;
-    switch (op) {
+    switch (oper) {
       case "+":
         res = numA + numB;
         break;
@@ -25,13 +25,13 @@ const App = () => {
         res = numA * numB;
         break;
       case "÷":
-        res = numB !== 0 ? numA / numB : "Error: No se puede dividir por 0";
+        res = numB !== 0 ? numA / numB : "Error";
         break;
       default:
         res = null;
     }
 
-    setOperacion(op);
+    setOperacion(oper);
     setResultado(res);
   };
 
@@ -46,7 +46,7 @@ const App = () => {
     <div
       className="d-flex justify-content-center align-items-center vh-100"
       style={{
-        backgroundImage: "url(/icons/fondo.png)", // Usa la imagen directamente desde la misma ubicación que calculadora.png
+        backgroundImage: "url(/icons/fondo.png)", 
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
