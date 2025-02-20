@@ -16,19 +16,77 @@ const Operador = ({
         <div>
             {/* Pantalla de la calculadora */}
             <div
-                className="form-control form-control-lg mb-3 text-end fw-bold"
+                className="form-control form-control-lg mb-3 fw-bold d-flex align-items-center justify-content-center"
                 style={{
                     height: "60px",
-                    fontSize: "24px",
+                    fontSize: "22px",
                     borderRadius: "10px",
                     background: "#e3f2fd",
                     display: "flex",
-                    alignItems: "center",
-                    justifyContent: "end",
+                    gap: "5px",
                     padding: "10px",
                 }}
             >
-                {a} {operacion} {b} {resultado !== "" && resultado !== null && `= ${resultado}`}
+                <span style={{ 
+                    border: "2px solid #ccc", 
+                    padding: "10px", 
+                    minWidth: "40px",  // Se adapta al contenido
+                    height: "40px", 
+                    display: "inline-flex", 
+                    alignItems: "center", 
+                    justifyContent: "center", 
+                    textAlign: "center", 
+                    borderRadius: "10px",
+                    whiteSpace: "nowrap" // Evita el quiebre de texto
+                }}>
+                    {a || " "}
+                </span>
+                <span style={{ 
+                    border: "2px solid #ccc", 
+                    padding: "10px", 
+                    minWidth: "40px", 
+                    height: "40px", 
+                    display: "inline-flex", 
+                    alignItems: "center", 
+                    justifyContent: "center", 
+                    textAlign: "center", 
+                    borderRadius: "10px"
+                }}>
+                    {operacion || " "}
+                </span>
+                <span style={{ 
+                    border: "2px solid #ccc", 
+                    padding: "10px", 
+                    minWidth: "40px", 
+                    height: "40px", 
+                    display: "inline-flex", 
+                    alignItems: "center", 
+                    justifyContent: "center", 
+                    textAlign: "center", 
+                    borderRadius: "10px",
+                    whiteSpace: "nowrap"
+                }}>
+                    {b || " "}
+                </span>
+                {resultado !== "" && resultado !== null && (
+                    <>
+                        <span>=</span>
+                        <span style={{ 
+                            border: "2px solid #ccc", 
+                            padding: "10px", 
+                            minWidth: "40px", 
+                            height: "40px", 
+                            display: "inline-flex", 
+                            alignItems: "center", 
+                            justifyContent: "center", 
+                            textAlign: "center", 
+                            borderRadius: "10px",
+                            whiteSpace: "nowrap"
+                        }}>
+                            {resultado}
+                        </span>
+                    </>
+                )}
             </div>
 
             <input
@@ -55,7 +113,7 @@ const Operador = ({
                         className={`btn btn-lg ${operacion === op ? "btn-primary text-white shadow" : "btn-outline-primary"}`}
                         onClick={() => {
                             setOperacion(op);
-                            setResultado(null); 
+                            setResultado(null);
                         }}
                         style={{
                             width: "70px",
@@ -67,7 +125,6 @@ const Operador = ({
                     >
                         {op}
                     </button>
-
                 ))}
             </div>
 
