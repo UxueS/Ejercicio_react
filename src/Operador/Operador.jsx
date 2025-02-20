@@ -13,58 +13,61 @@ const Operador = ({
     Limpiar,
 }) => {
     return (
-        <div>
+        <div style={{ maxWidth: "500px", margin: "auto", padding: "20px" }}> 
             {/* Pantalla de la calculadora */}
             <div
-                className="form-control form-control-lg mb-3 fw-bold d-flex align-items-center justify-content-center"
+                className="form-control mb-4 fw-bold d-flex align-items-center justify-content-center"
                 style={{
-                    height: "60px",
-                    fontSize: "22px",
-                    borderRadius: "10px",
+                    height: "100px", 
+                    fontSize: "30px", 
+                    borderRadius: "15px",
                     background: "#e3f2fd",
                     display: "flex",
-                    gap: "5px",
-                    padding: "10px",
+                    gap: "10px",
+                    padding: "15px",
                 }}
             >
                 <span style={{ 
-                    border: "2px solid #ccc", 
-                    padding: "10px", 
-                    minWidth: "40px",  // Se adapta al contenido
-                    height: "40px", 
+                    border: "3px solid #ccc", 
+                    padding: "15px", 
+                    minWidth: "60px", 
+                    height: "60px", 
                     display: "inline-flex", 
                     alignItems: "center", 
                     justifyContent: "center", 
                     textAlign: "center", 
-                    borderRadius: "10px",
-                    whiteSpace: "nowrap" // Evita el quiebre de texto
+                    borderRadius: "15px",
+                    whiteSpace: "nowrap",
+                    fontSize: "30px" 
                 }}>
                     {a || " "}
                 </span>
                 <span style={{ 
-                    border: "2px solid #ccc", 
-                    padding: "10px", 
-                    minWidth: "40px", 
-                    height: "40px", 
+                    border: "3px solid #ccc", 
+                    padding: "15px", 
+                    minWidth: "60px", 
+                    height: "60px", 
                     display: "inline-flex", 
                     alignItems: "center", 
                     justifyContent: "center", 
                     textAlign: "center", 
-                    borderRadius: "10px"
+                    borderRadius: "15px",
+                    fontSize: "30px"
                 }}>
                     {operacion || " "}
                 </span>
                 <span style={{ 
-                    border: "2px solid #ccc", 
-                    padding: "10px", 
-                    minWidth: "40px", 
-                    height: "40px", 
+                    border: "3px solid #ccc", 
+                    padding: "15px", 
+                    minWidth: "60px", 
+                    height: "60px", 
                     display: "inline-flex", 
                     alignItems: "center", 
                     justifyContent: "center", 
                     textAlign: "center", 
-                    borderRadius: "10px",
-                    whiteSpace: "nowrap"
+                    borderRadius: "15px",
+                    whiteSpace: "nowrap",
+                    fontSize: "30px"
                 }}>
                     {b || " "}
                 </span>
@@ -72,16 +75,17 @@ const Operador = ({
                     <>
                         <span>=</span>
                         <span style={{ 
-                            border: "2px solid #ccc", 
-                            padding: "10px", 
-                            minWidth: "40px", 
-                            height: "40px", 
+                            border: "3px solid #ccc", 
+                            padding: "15px", 
+                            minWidth: "60px", 
+                            height: "60px", 
                             display: "inline-flex", 
                             alignItems: "center", 
                             justifyContent: "center", 
                             textAlign: "center", 
-                            borderRadius: "10px",
-                            whiteSpace: "nowrap"
+                            borderRadius: "15px",
+                            whiteSpace: "nowrap",
+                            fontSize: "30px"
                         }}>
                             {resultado}
                         </span>
@@ -95,7 +99,7 @@ const Operador = ({
                 placeholder="Ingrese A"
                 value={a}
                 onChange={(e) => setA(e.target.value)}
-                style={{ borderRadius: "10px" }}
+                style={{ borderRadius: "15px", fontSize: "24px", height: "60px" }} 
             />
             <input
                 type="number"
@@ -103,10 +107,10 @@ const Operador = ({
                 placeholder="Ingrese B"
                 value={b}
                 onChange={(e) => setB(e.target.value)}
-                style={{ borderRadius: "10px" }}
+                style={{ borderRadius: "15px", fontSize: "24px", height: "60px" }} 
             />
 
-            <div className="d-flex justify-content-between my-3">
+            <div className="d-flex justify-content-between my-4" style={{ gap: "20px" }}>
                 {["+", "-", "×", "÷"].map((op) => (
                     <button
                         key={op}
@@ -116,10 +120,10 @@ const Operador = ({
                             setResultado(null);
                         }}
                         style={{
-                            width: "70px",
-                            height: "70px",
+                            width: "90px", 
+                            height: "90px",
                             borderRadius: "30%",
-                            fontSize: "30px",
+                            fontSize: "40px", 
                             transition: "0.3s",
                         }}
                     >
@@ -130,12 +134,12 @@ const Operador = ({
 
             {/* Botón igual para calcular */}
             <button
-                className="btn btn-success btn-lg w-100 mb-2"
+                className="btn btn-success btn-lg w-100 mb-3"
                 onClick={() => hacerOperacion(operacion)}
                 style={{
-                    height: "50px",
-                    borderRadius: "10px",
-                    fontSize: "18px",
+                    height: "70px", 
+                    borderRadius: "15px",
+                    fontSize: "24px",
                 }}
             >
                 =
@@ -146,9 +150,9 @@ const Operador = ({
                 className="btn btn-danger btn-lg w-100"
                 onClick={Limpiar}
                 style={{
-                    height: "50px",
-                    borderRadius: "10px",
-                    fontSize: "18px",
+                    height: "70px", 
+                    borderRadius: "15px",
+                    fontSize: "24px",
                 }}
             >
                 Borrar todo

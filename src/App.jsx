@@ -57,7 +57,7 @@ const App = () => {
       <div
         className="card shadow-lg p-4 text-center"
         style={{
-          maxWidth: "400px",
+          maxWidth: "500px",
           width: "100%",
           borderRadius: "15px",
           background: "white",
