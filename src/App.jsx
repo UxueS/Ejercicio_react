@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Operador from "./Operador/Operador";
+import Operador from "./Calculadora/Calculadora";
 
 const App = () => {
   const [a, setA] = useState("");
@@ -46,7 +46,7 @@ const App = () => {
     <div
       className="d-flex justify-content-center align-items-center vh-100"
       style={{
-        backgroundImage: "url(/icons/fondo.png)", 
+        backgroundImage: "url(/icons/fondo.png)",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
