@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Operador from "./Calculadora/Calculadora";
+import Calculadora from "./componentes/Calculadora";
 
 const App = () => {
   const [a, setA] = useState("");
@@ -10,25 +10,21 @@ const App = () => {
 
   const hacerOperacion = (oper) => {
     if (a === "" || b === "") return;
-    const numA = parseFloat(a);
+    const numeroA = parseFloat(a);
     const numB = parseFloat(b);
 
     let res;
-    switch (oper) {
-      case "+":
-        res = numA + numB;
-        break;
-      case "-":
-        res = numA - numB;
-        break;
-      case "×":
-        res = numA * numB;
-        break;
-      case "÷":
-        res = numB !== 0 ? numA / numB : "Error";
-        break;
-      default:
-        res = null;
+
+    if (oper === "+") {
+      res = numeroA + numB;
+    } else if (oper === "-") {
+      res = numeroA - numB;
+    } else if (oper === "×") {
+      res = numeroA * numB;
+    } else if (oper === "÷") {
+      res = numB !== 0 ? numeroA / numB : "Error";
+    } else {
+      res = null;
     }
 
     setOperacion(oper);
@@ -72,7 +68,7 @@ const App = () => {
           Calculadora
         </h2>
 
-        <Operador
+        <Calculadora
           a={a}
           b={b}
           setA={setA}
